@@ -1,44 +1,97 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+## 環境構築手順
+- kokura-web直下に`.env`ファイル作成してください
+    - `.env`のアクセス用IDは他のエンジニアに聞いてください
+    - 鍵情報も含まれるため、取り扱いには注意してください
 
-## Available Scripts
+- `npm install` でpackege.jsonを読み込んでください。
 
-In the project directory, you can run:
+Node の version はv14 系の安定版を使用してください。
 
-### `npm start`
+```bash
+bash
+$ node -v
+v14.15.4
+```
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## **anyenv推奨**
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- Nodeのversionを自動管理してくれるためのツールです。
 
-### `npm test`
+    [anyenv/anyenv](https://github.com/anyenv/anyenv)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## install手順
 
-### `npm run build`
+```bash
+bash
+$ brew install anyenv
+$ anyenv init
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+使ってるシェルの設定ファイルに追記するようにと、指示が出るのでそのとおりに従う。
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+※シェルの再起動が必要(ターミナルを開き直すでもいいです)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+exec $SHELL -l
+```
 
-### `npm run eject`
+マニフェストディレクトリがないと怒られる場合は、以下のコマンドで initialize する。
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+bash
+$ anyenv install --init
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**### nodenv install**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+anyenv を使って nodenv をインストールする。
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+bash
+$ anyenv install nodenv
+$ exec $SHELL -l
+```
 
-## Learn More
+※\$SHELL がないって怒られる場合(fish)はシェル再起動か設定ファイルを再ロードしてください.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**### Node.js install**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+bash
+$ nodenv install 14.15.4
+$ nodenv global 14.15.4
+$ exec $SHELL -l
+```
+
+### **ローカルサーバー**
+
+`$ npm start` 
+
+**Gatsby develop**
+
+`$ npm run develop`
+
+### **Storybook**
+
+`$ npm run develop-sb`
+
+### **linter**
+
+`# eslintのみ 
+$ npm run eslint 
+# stylelintのみ 
+$ npm run stylelint` 
+
+`# 同時 
+$ npm run lint`
+
+上記以外の script は`package.json`を参照のこと
+
+### **※注意**
+
+- `$ npm audit fix` で脆弱性を修正しようとすると、開発環境にerrrorがでます。
+- gatsby-source-contentful-v5.2.0に上げて脆弱性を修復しようとしますが、同時にgatsby-v3のupdateが必要になります。gatsbyが2021/3月に-v3にupdateされましたが、-v3以降の対応が現状(2021/4/2)できていません。
+- gatsby-source-contentful以外のHighな脆弱性が見つからないため開発環境-v4~で開発を進めています。
+- gatsby-v3系の移行完了次第、この注意書きを消してください。
+
+[Migrating from v2 to v3](https://www.gatsbyjs.com/docs/reference/release-notes/migrating-from-v2-to-v3/)
