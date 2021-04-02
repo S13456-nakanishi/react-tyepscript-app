@@ -78,13 +78,13 @@ $ exec $SHELL -l
 
 ### **linter**
 
-`# eslintのみ 
-$ npm run eslint 
-# stylelintのみ 
-$ npm run stylelint` 
+#### eslintのみ 
+`$ npm run eslint` 
+#### stylelintのみ 
+`$ npm run stylelint` 
 
-`# 同時 
-$ npm run lint`
+#### 同時 
+`$ npm run lint`
 
 上記以外の script は`package.json`を参照のこと
 
