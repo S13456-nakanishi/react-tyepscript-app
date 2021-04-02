@@ -92,7 +92,7 @@ $ exec $SHELL -l
 
 - `$ npm audit fix` で脆弱性を修正しようとすると、開発環境にerrrorがでます。
 - gatsby-source-contentful-v5.2.0に上げて脆弱性を修復しようとしますが、同時にgatsby-v3のupdateが必要になります。gatsbyが2021/3月に-v3にupdateされましたが、-v3以降の対応が現状(2021/4/2)できていません。
-- gatsby-source-contentful以外のHighな脆弱性が見つからないため開発環境-v4~で開発を進めています。
+- gatsby-source-contentful以外にHighな脆弱性が見つからないため開発環境では-v4~で開発を進めています。
 - gatsby-v3系の移行完了次第、この注意書きを消してください。
 
 [Migrating from v2 to v3](https://www.gatsbyjs.com/docs/reference/release-notes/migrating-from-v2-to-v3/)
